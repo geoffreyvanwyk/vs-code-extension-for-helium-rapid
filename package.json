@@ -1,0 +1,25 @@
+{
+  "name": "language-support-for-helium-dsl",
+  "displayName": "Language support for Helium DSL",
+  "description": "Provides language support for the domain-specific language of the Helium application platform.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.101.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "helium",
+      "aliases": ["Helium DSL", "helium"],
+      "extensions": [".mez"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "helium",
+      "scopeName": "source.mez",
+      "path": "./syntaxes/helium.tmLanguage.json"
+    }]
+  }
+}
