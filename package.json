@@ -18,7 +18,7 @@
     }],
     "grammars": [{
       "language": "helium",
-      "scopeName": "source.mez",
+      "scopeName": "source.helium",
       "path": "./syntaxes/helium.tmLanguage.json"
     }]
   }

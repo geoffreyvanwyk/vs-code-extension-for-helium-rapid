@@ -3,30 +3,275 @@
 	"name": "Helium DSL",
 	"patterns": [
 		{
+			"include": "#comments"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#punctuation"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.helium",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.helium",
-			"begin": "\"",
-			"end": "\"",
+		"comments": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.helium",
-					"match": "\\\\."
+					"name": "comment.line.double-slash.helium",
+					"match": "//.*$"
+				},
+				{
+					"name": "comment.block.helium",
+					"begin": "/\\*",
+					"end": "\\*/",
+					"patterns": [
+						{
+							"name": "comment.block.helium",
+							"match": "\\*/"
+						}
+					]
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.helium",
+					"match": "\\b(if|else|while|for|return|break|continue|switch|case|default|try|catch|finally|throw|import|export|module|class|interface|extends|implements|new|delete|typeof|instanceof|in|of|with|yield|await|async|function|var|let|const|static|public|private|protected|abstract|final|native|synchronized|transient|volatile|strictfp|enum|package|super|this)\\b"
+				},
+				{
+					"name": "keyword.operator.logical.helium",
+					"match": "\\b(and|or|not|xor)\\b"
+				},
+				{
+					"name": "keyword.operator.assignment.helium",
+					"match": "\\b(is|as)\\b"
+				},
+				{
+					"name": "keyword.other.helium",
+					"match": "\\b(true|false|null|undefined|NaN|Infinity)\\b"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.helium",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.helium",
+							"match": "\\\\."
+						},
+						{
+							"name": "constant.character.escape.unicode.helium",
+							"match": "\\\\u[0-9a-fA-F]{4}"
+						},
+						{
+							"name": "constant.character.escape.unicode.helium",
+							"match": "\\\\x[0-9a-fA-F]{2}"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.single.helium",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.helium",
+							"match": "\\\\."
+						},
+						{
+							"name": "constant.character.escape.unicode.helium",
+							"match": "\\\\u[0-9a-fA-F]{4}"
+						},
+						{
+							"name": "constant.character.escape.unicode.helium",
+							"match": "\\\\x[0-9a-fA-F]{2}"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.template.helium",
+					"begin": "`",
+					"end": "`",
+					"patterns": [
+						{
+							"name": "constant.character.escape.helium",
+							"match": "\\\\."
+						},
+						{
+							"name": "variable.other.template.helium",
+							"begin": "\\$\\{",
+							"end": "\\}",
+							"patterns": [
+								{
+									"include": "#variables"
+								},
+								{
+									"include": "#operators"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.integer.hexadecimal.helium",
+					"match": "\\b0[xX][0-9a-fA-F]+\\b"
+				},
+				{
+					"name": "constant.numeric.integer.binary.helium",
+					"match": "\\b0[bB][01]+\\b"
+				},
+				{
+					"name": "constant.numeric.integer.octal.helium",
+					"match": "\\b0[oO]?[0-7]+\\b"
+				},
+				{
+					"name": "constant.numeric.float.helium",
+					"match": "\\b\\d+\\.\\d+([eE][+-]?\\d+)?\\b"
+				},
+				{
+					"name": "constant.numeric.integer.decimal.helium",
+					"match": "\\b\\d+\\b"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.arithmetic.helium",
+					"match": "\\+|-|\\*|/|%|\\*\\*"
+				},
+				{
+					"name": "keyword.operator.assignment.helium",
+					"match": "=|\\+=|-=|\\*=|/=|%=|\\*\\*=|<<=|>>=|&=|\\|=|\\^="
+				},
+				{
+					"name": "keyword.operator.comparison.helium",
+					"match": "==|!=|===|!==|<|>|<=|>="
+				},
+				{
+					"name": "keyword.operator.logical.helium",
+					"match": "&&|\\|\\||!"
+				},
+				{
+					"name": "keyword.operator.bitwise.helium",
+					"match": "&|\\||\\^|~|<<|>>|>>>"
+				},
+				{
+					"name": "keyword.operator.increment.helium",
+					"match": "\\+\\+|--"
+				},
+				{
+					"name": "keyword.operator.member.helium",
+					"match": "\\.|\\?\\."
+				},
+				{
+					"name": "keyword.operator.spread.helium",
+					"match": "\\.\\.\\."
+				},
+				{
+					"name": "keyword.operator.optional.helium",
+					"match": "\\?"
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+					"name": "entity.name.function.helium",
+					"match": "\\b[a-zA-Z_$][a-zA-Z0-9_$]*\\s*\\("
+				},
+				{
+					"name": "keyword.other.function.helium",
+					"match": "\\b(function|=>)\\b"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.other.readwrite.helium",
+					"match": "\\b[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
+				},
+				{
+					"name": "variable.language.this.helium",
+					"match": "\\bthis\\b"
+				},
+				{
+					"name": "variable.language.super.helium",
+					"match": "\\bsuper\\b"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.language.boolean.helium",
+					"match": "\\b(true|false)\\b"
+				},
+				{
+					"name": "constant.language.null.helium",
+					"match": "\\b(null|undefined)\\b"
+				},
+				{
+					"name": "constant.language.numeric.helium",
+					"match": "\\b(NaN|Infinity)\\b"
+				}
+			]
+		},
+		"punctuation": {
+			"patterns": [
+				{
+					"name": "punctuation.terminator.statement.helium",
+					"match": ";"
+				},
+				{
+					"name": "punctuation.separator.comma.helium",
+					"match": ","
+				},
+				{
+					"name": "punctuation.separator.colon.helium",
+					"match": ":"
+				},
+				{
+					"name": "punctuation.definition.block.helium",
+					"match": "\\{|\\}"
+				},
+				{
+					"name": "punctuation.definition.array.helium",
+					"match": "\\[|\\]"
+				},
+				{
+					"name": "punctuation.definition.parameters.helium",
+					"match": "\\(|\\)"
 				}
 			]
 		}
 	},
-	"scopeName": "source.mez"
+	"scopeName": "source.helium"
 }
