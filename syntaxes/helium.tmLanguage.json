@@ -54,7 +54,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.helium",
-					"match": "\\b(if|else|while|for|return|break|continue|switch|case|default|try|catch|finally|throw|import|export|module|class|interface|extends|implements|new|delete|typeof|instanceof|in|of|with|yield|await|async|function|var|let|const|static|public|private|protected|abstract|final|native|synchronized|transient|volatile|strictfp|enum|package|super|this)\\b"
+					"match": "\\b(if|else|while|for|return|break|continue|switch|case|default|try|catch|finally|throw|import|export|module|class|interface|object|extends|implements|new|delete|typeof|instanceof|in|of|with|yield|await|async|function|var|let|const|static|public|private|protected|abstract|final|native|synchronized|transient|volatile|strictfp|enum|package|super|this)\\b"
 				},
 				{
 					"name": "keyword.operator.logical.helium",
