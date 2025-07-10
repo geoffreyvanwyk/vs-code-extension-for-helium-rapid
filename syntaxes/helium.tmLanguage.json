@@ -28,6 +28,9 @@
 		},
 		{
 			"include": "#punctuation"
+		},
+		{
+			"include": "#storage-types"
 		}
 	],
 	"repository": {
@@ -54,19 +57,27 @@
 			"patterns": [
 				{
 					"name": "keyword.control.helium",
-					"match": "\\b(if|else|while|for|return|break|continue|switch|case|default|try|catch|finally|throw|import|export|module|class|interface|object|extends|implements|new|delete|typeof|instanceof|in|of|with|yield|await|async|function|var|let|const|static|public|private|protected|abstract|final|native|synchronized|transient|volatile|strictfp|enum|package|super|this)\\b"
+					"match": "\\b(if|else|for|return)\\b"
+				},
+				{
+					"name": "keyword.type.helium",
+					"match": "\\b(object|enum|validator|unit)\\b"
+				},
+				{
+					"name": "keyword.modifier.helium",
+					"match": "\\b(persistent)\\b"
 				},
 				{
 					"name": "keyword.operator.logical.helium",
-					"match": "\\b(and|or|not|xor)\\b"
+					"match": "\\b(and|or|not)\\b"
 				},
 				{
 					"name": "keyword.operator.assignment.helium",
-					"match": "\\b(is|as)\\b"
+					"match": "\\b(is|as|in)\\b"
 				},
 				{
 					"name": "keyword.other.helium",
-					"match": "\\b(true|false|null|undefined|NaN|Infinity)\\b"
+					"match": "\\b(true|false|null)\\b"
 				}
 			]
 		},
@@ -269,6 +280,18 @@
 				{
 					"name": "punctuation.definition.parameters.helium",
 					"match": "\\(|\\)"
+				}
+			]
+		},
+		"storage-types": {
+			"patterns": [
+				{
+					"name": "storage.type.primitive.helium",
+					"match": "\\b(int|string|decimal|bool|date|datetime|uuid|void|blob)\\b"
+				},
+				{
+					"name": "storage.type.object.helium",
+					"match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
 				}
 			]
 		}
