@@ -6,6 +6,9 @@
 			"include": "#comments"
 		},
 		{
+			"include": "#storage-types"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
@@ -28,9 +31,6 @@
 		},
 		{
 			"include": "#punctuation"
-		},
-		{
-			"include": "#storage-types"
 		},
 		{
 			"include": "#annotations"
@@ -123,6 +123,30 @@
 							"match": "\\\\x[0-9a-fA-F]{2}"
 						}
 					]
+				},
+				{
+					"name": "string.quoted.template.helium",
+					"begin": "`",
+					"end": "`",
+					"patterns": [
+						{
+							"name": "constant.character.escape.helium",
+							"match": "\\\\."
+						},
+						{
+							"name": "variable.other.template.helium",
+							"begin": "\\$\\{",
+							"end": "\\}",
+							"patterns": [
+								{
+									"include": "#variables"
+								},
+								{
+									"include": "#operators"
+								}
+							]
+						}
+					]
 				}
 			]
 		},
@@ -206,7 +230,7 @@
 			"patterns": [
 				{
 					"name": "variable.other.readwrite.helium",
-					"match": "\\b[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
+					"match": "\\b[a-z_$][a-zA-Z0-9_$]*\\b"
 				},
 				{
 					"name": "variable.language.this.helium",
@@ -226,7 +250,11 @@
 				},
 				{
 					"name": "constant.language.null.helium",
-					"match": "\\b(null)\\b"
+					"match": "\\b(null|undefined)\\b"
+				},
+				{
+					"name": "constant.language.numeric.helium",
+					"match": "\\b(NaN|Infinity)\\b"
 				}
 			]
 		},
