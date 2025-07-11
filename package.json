@@ -2,7 +2,7 @@
   "name": "language-support-for-helium-dsl",
   "displayName": "Language support for Helium DSL",
   "description": "Provides language support for the domain-specific language of the Helium application platform.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.101.0"
   },
