@@ -76,7 +76,7 @@
 				},
 				{
 					"name": "keyword.operator.assignment.helium",
-					"match": "\\b(is|as|in)\\b"
+					"match": "\\b(is|as|in|via)\\b"
 				},
 				{
 					"name": "keyword.other.helium",
