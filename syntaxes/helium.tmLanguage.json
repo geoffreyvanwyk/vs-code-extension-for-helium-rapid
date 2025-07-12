@@ -6,6 +6,9 @@
 			"include": "#comments"
 		},
 		{
+			"include": "#annotations"
+		},
+		{
 			"include": "#storage-types"
 		},
 		{
@@ -31,9 +34,6 @@
 		},
 		{
 			"include": "#punctuation"
-		},
-		{
-			"include": "#annotations"
 		}
 	],
 	"repository": {
@@ -301,12 +301,42 @@
 		"annotations": {
 			"patterns": [
 				{
-					"name": "storage.type.annotation.helium",
-					"match": "\\b@[A-Z][a-zA-Z0-9_]*\\b"
-				},
-				{
-					"name": "storage.type.annotation.helium",
-					"match": "\\b@[a-z][a-zA-Z0-9_]*\\b"
+					"name": "meta.declaration.annotation.helium",
+					"begin": "(@)([a-zA-Z][a-zA-Z0-9_]*)",
+					"end": "(?=\\s|$)",
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.annotation.helium"
+						},
+						"2": {
+							"name": "storage.type.annotation.helium"
+						}
+					},
+					"patterns": [
+						{
+							"name": "meta.declaration.annotation.arguments.helium",
+							"begin": "\\(",
+							"end": "\\)",
+							"patterns": [
+								{
+									"include": "#strings"
+								},
+								{
+									"include": "#numbers"
+								},
+								{
+									"include": "#variables"
+								},
+								{
+									"include": "#functions"
+								},
+								{
+									"name": "punctuation.separator.comma.helium",
+									"match": ","
+								}
+							]
+						}
+					]
 				}
 			]
 		}
