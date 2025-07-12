@@ -70,10 +70,7 @@
 					"name": "keyword.modifier.helium",
 					"match": "\\b(persistent)\\b"
 				},
-				{
-					"name": "keyword.operator.logical.helium",
-					"match": "\\b(and|or|not)\\b"
-				},
+
 				{
 					"name": "keyword.operator.assignment.helium",
 					"match": "\\b(is|as|in|via)\\b"
