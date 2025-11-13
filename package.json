@@ -1,8 +1,8 @@
 {
-  "name": "language-support-for-helium-dsl",
-  "displayName": "Language support for Helium DSL",
-  "description": "Provides language support for the domain-specific language of the Helium application platform.",
-  "icon": "images/language-support-for-helium-dsl-icon.png",
+  "name": "language-support-for-helium-rapid",
+  "displayName": "Language support for Helium Rapid",
+  "description": "Provides language support for the domain-specific language of the Helium Rapid application platform.",
+  "icon": "images/language-support-for-helium-rapid-icon.png",
   "version": "1.4.0",
   "engines": {
     "vscode": "^1.99.0"
@@ -12,19 +12,19 @@
   ],
   "contributes": {
     "languages": [{
-      "id": "helium",
-      "aliases": ["Helium DSL", "helium"],
+      "id": "helium-rapid",
+      "aliases": ["Helium Rapid", "Helium DSL", "Helium"],
       "extensions": [".mez"],
       "configuration": "./language-configuration.json",
       "icon": {
-        "light": "images/helium-light.png",
-        "dark": "images/helium-dark.png"
+        "light": "images/helium-rapid-light.png",
+        "dark": "images/helium-rapid-dark.png"
       }
     }],
     "grammars": [{
-      "language": "helium",
-      "scopeName": "source.helium",
-      "path": "./syntaxes/helium.tmLanguage.json"
+      "language": "helium-rapid",
+      "scopeName": "source.rapid.helium",
+      "path": "./syntaxes/helium-rapid.tmLanguage.json"
     }]
   }
 }
