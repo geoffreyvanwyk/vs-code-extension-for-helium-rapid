@@ -1,6 +1,7 @@
-# Language Support for Helium DSL 
+# Language Support for Helium Rapid 
 
-Provides language support for the domain-specific language of the Helium application platform.
+Provides language support for the domain-specific language of the Helium Rapid
+application platform.
 
 ## Features
 
