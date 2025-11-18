@@ -1,18 +1,20 @@
-# Welcome to your VS Code Extension
+# Contributing Guide 
 
 ## What's in the folder
 
-* This folder contains all of the files necessary for your extension.
+This folder contains all of the files necessary for your extension.
 * `package.json` - this is the manifest file in which you declare your language support and define the location of the grammar file that has been copied into your extension.
-* `syntaxes/helium.tmLanguage.json` - this is the Text mate grammar file that is used for tokenization.
-* `language-configuration.json` - this is the language configuration, defining the tokens that are used for comments and brackets.
+* `syntaxes/helium-rapid.tmLanguage.json` - this is the Text mate grammar file that is used for tokenization. Tokens are used in [syntax highlighting](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide).
+* `language-configuration.json` - this is the [language configuration](https://code.visualstudio.com/api/language-extensions/language-configuration-guide), defining
+* the tokens that are used for comments and brackets.
 
 ## Get up and running straight away
 
 * Make sure the language configuration settings in `language-configuration.json` are accurate.
 * Press `F5` to open a new window with your extension loaded.
-* Create a new file with a file name suffix matching your language.
+* Create a new file with a file name suffix matching your language, or open an existing project that uses the language.
 * Verify that syntax highlighting works and that the language configuration settings are working.
+* Use the scope inspector tool to check that parts of the language are classified correctly according to the grammar. Run the scope inspector with the command `Developer: Inspect Editor Tokens and Scopes`
 
 ## Make changes
 

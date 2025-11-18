@@ -13,6 +13,11 @@ This extension provides syntax highlighting.
 
 Initial release with syntax highlighting.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for information on how to work on this VS Code
+extension.
+
 ---
 
 ## License
