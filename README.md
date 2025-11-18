@@ -5,20 +5,22 @@ application platform.
 
 ## Features
 
-This extension provides syntax highlighting.
+This extension provides the following: 
+
+* Syntax Highlighting
+* Language Support for:
+    - Toggling in-line and block comments.
+    - Autoclosing pairs: parentheses, braces, brackets, double quotes.
+    - Pairs for surrounding selections: parentheses, braces, brackets, double quotes.
 
 ## Release Notes
 
-### 1.0.0
-
-Initial release with syntax highlighting.
+See [CHANGELOG.md](CHANGELOG.md) for the release notes.
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for information on how to work on this VS Code
 extension.
-
----
 
 ## License
 
