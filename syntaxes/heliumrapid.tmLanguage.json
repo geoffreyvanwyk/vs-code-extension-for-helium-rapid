@@ -64,7 +64,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.heliumrapid",
-					"match": "\\b(if|else|for|return)\\b"
+					"match": "\\b(if|else|for|foreach|throw|try|catch|finally|return)\\b"
 				},
 				{
 					"name": "keyword.type.heliumrapid",
