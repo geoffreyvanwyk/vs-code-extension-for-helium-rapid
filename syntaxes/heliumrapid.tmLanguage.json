@@ -156,7 +156,7 @@
 				},
 				{
 					"name": "keyword.operator.member.heliumrapid",
-					"match": "\\.|\\?\\."
+					"match": "\\."
 				}
 			]
 		},
