@@ -163,10 +163,6 @@
 					"match": "\\.|\\?\\."
 				},
 				{
-					"name": "keyword.operator.spread.heliumrapid",
-					"match": "\\.\\.\\."
-				},
-				{
 					"name": "keyword.operator.optional.heliumrapid",
 					"match": "\\?"
 				}
