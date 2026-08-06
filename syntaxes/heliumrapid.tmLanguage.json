@@ -77,7 +77,7 @@
 
 				{
 					"name": "keyword.operator.assignment.heliumrapid",
-					"match": "\\b(is|as|in|via)\\b"
+					"match": "\\b(via)\\b"
 				},
 				{
 					"name": "keyword.other.heliumrapid",
