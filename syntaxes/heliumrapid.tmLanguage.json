@@ -136,7 +136,7 @@
 			"patterns": [
 				{
 					"name": "keyword.operator.arithmetic.heliumrapid",
-					"match": "\\+|-|\\*|/|%|\\*\\*"
+					"match": "\\+|-|\\*|/|%"
 				},
 				{
 					"name": "keyword.operator.assignment.heliumrapid",
