@@ -12,7 +12,7 @@
   ],
   "contributes": {
     "languages": [{
-      "id": "helium-rapid",
+      "id": "heliumrapid",
       "aliases": ["Helium Rapid", "Helium DSL", "Helium"],
       "extensions": [".mez"],
       "configuration": "./language-configuration.json",
@@ -22,9 +22,9 @@
       }
     }],
     "grammars": [{
-      "language": "helium-rapid",
-      "scopeName": "source.rapid.helium",
-      "path": "./syntaxes/helium-rapid.tmLanguage.json"
+      "language": "heliumrapid",
+      "scopeName": "source.heliumrapid",
+      "path": "./syntaxes/heliumrapid.tmLanguage.json"
     }]
   }
 }

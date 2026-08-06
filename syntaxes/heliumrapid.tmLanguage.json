@@ -1,7 +1,10 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Helium Rapid",
-	"scopeName": "source.rapid.helium",
+	"$schema": "https://www.schemastore.org/tmlanguage.json",
+	"name": "heliumrapid",
+	"scopeName": "source.heliumrapid",
+	"displayName": "Helium Rapid",
+	"description": "Textmate grammar for domain-specific language of the Helium Rapid application platform-as-a-service",
+	"fileTypes": ["mez"],
 	"patterns": [
 		{
 			"include": "#comments"
@@ -41,16 +44,16 @@
 		"comments": {
 			"patterns": [
 				{
-					"name": "comment.line.double-slash.rapid.helium",
+					"name": "comment.line.double-slash.heliumrapid",
 					"match": "//.*$"
 				},
 				{
-					"name": "comment.block.rapid.helium",
+					"name": "comment.block.heliumrapid",
 					"begin": "/\\*",
 					"end": "\\*/",
 					"patterns": [
 						{
-							"name": "comment.block.rapid.helium",
+							"name": "comment.block.heliumrapid",
 							"match": "\\*/"
 						}
 					]
@@ -60,24 +63,24 @@
 		"keywords": {
 			"patterns": [
 				{
-					"name": "keyword.control.rapid.helium",
+					"name": "keyword.control.heliumrapid",
 					"match": "\\b(if|else|for|return)\\b"
 				},
 				{
-					"name": "keyword.type.rapid.helium",
+					"name": "keyword.type.heliumrapid",
 					"match": "\\b(object|enum|validator|unit)\\b"
 				},
 				{
-					"name": "keyword.modifier.rapid.helium",
+					"name": "keyword.modifier.heliumrapid",
 					"match": "\\b(persistent)\\b"
 				},
 
 				{
-					"name": "keyword.operator.assignment.rapid.helium",
+					"name": "keyword.operator.assignment.heliumrapid",
 					"match": "\\b(is|as|in|via)\\b"
 				},
 				{
-					"name": "keyword.other.rapid.helium",
+					"name": "keyword.other.heliumrapid",
 					"match": "\\b(true|false|null)\\b"
 				}
 			]
@@ -85,54 +88,54 @@
 		"strings": {
 			"patterns": [
 				{
-					"name": "string.quoted.double.rapid.helium",
+					"name": "string.quoted.double.heliumrapid",
 					"begin": "\"",
 					"end": "\"",
 					"patterns": [
 						{
-							"name": "constant.character.escape.rapid.helium",
+							"name": "constant.character.escape.heliumrapid",
 							"match": "\\\\."
 						},
 						{
-							"name": "constant.character.escape.unicode.rapid.helium",
+							"name": "constant.character.escape.unicode.heliumrapid",
 							"match": "\\\\u[0-9a-fA-F]{4}"
 						},
 						{
-							"name": "constant.character.escape.unicode.rapid.helium",
+							"name": "constant.character.escape.unicode.heliumrapid",
 							"match": "\\\\x[0-9a-fA-F]{2}"
 						}
 					]
 				},
 				{
-					"name": "string.quoted.single.rapid.helium",
+					"name": "string.quoted.single.heliumrapid",
 					"begin": "'",
 					"end": "'",
 					"patterns": [
 						{
-							"name": "constant.character.escape.rapid.helium",
+							"name": "constant.character.escape.heliumrapid",
 							"match": "\\\\."
 						},
 						{
-							"name": "constant.character.escape.unicode.rapid.helium",
+							"name": "constant.character.escape.unicode.heliumrapid",
 							"match": "\\\\u[0-9a-fA-F]{4}"
 						},
 						{
-							"name": "constant.character.escape.unicode.rapid.helium",
+							"name": "constant.character.escape.unicode.heliumrapid",
 							"match": "\\\\x[0-9a-fA-F]{2}"
 						}
 					]
 				},
 				{
-					"name": "string.quoted.template.rapid.helium",
+					"name": "string.quoted.template.heliumrapid",
 					"begin": "`",
 					"end": "`",
 					"patterns": [
 						{
-							"name": "constant.character.escape.rapid.helium",
+							"name": "constant.character.escape.heliumrapid",
 							"match": "\\\\."
 						},
 						{
-							"name": "variable.other.template.rapid.helium",
+							"name": "variable.other.template.heliumrapid",
 							"begin": "\\$\\{",
 							"end": "\\}",
 							"patterns": [
@@ -151,23 +154,23 @@
 		"numbers": {
 			"patterns": [
 				{
-					"name": "constant.numeric.integer.hexadecimal.rapid.helium",
+					"name": "constant.numeric.integer.hexadecimal.heliumrapid",
 					"match": "\\b0[xX][0-9a-fA-F]+\\b"
 				},
 				{
-					"name": "constant.numeric.integer.binary.rapid.helium",
+					"name": "constant.numeric.integer.binary.heliumrapid",
 					"match": "\\b0[bB][01]+\\b"
 				},
 				{
-					"name": "constant.numeric.integer.octal.rapid.helium",
+					"name": "constant.numeric.integer.octal.heliumrapid",
 					"match": "\\b0[oO]?[0-7]+\\b"
 				},
 				{
-					"name": "constant.numeric.float.rapid.helium",
+					"name": "constant.numeric.float.heliumrapid",
 					"match": "\\b\\d+\\.\\d+([eE][+-]?\\d+)?\\b"
 				},
 				{
-					"name": "constant.numeric.integer.decimal.rapid.helium",
+					"name": "constant.numeric.integer.decimal.heliumrapid",
 					"match": "\\b\\d+\\b"
 				}
 			]
@@ -175,39 +178,39 @@
 		"operators": {
 			"patterns": [
 				{
-					"name": "keyword.operator.arithmetic.rapid.helium",
+					"name": "keyword.operator.arithmetic.heliumrapid",
 					"match": "\\+|-|\\*|/|%|\\*\\*"
 				},
 				{
-					"name": "keyword.operator.assignment.rapid.helium",
+					"name": "keyword.operator.assignment.heliumrapid",
 					"match": "=|\\+=|-=|\\*=|/=|%=|\\*\\*=|<<=|>>=|&=|\\|=|\\^="
 				},
 				{
-					"name": "keyword.operator.comparison.rapid.helium",
+					"name": "keyword.operator.comparison.heliumrapid",
 					"match": "==|!=|===|!==|<|>|<=|>="
 				},
 				{
-					"name": "keyword.operator.logical.rapid.helium",
+					"name": "keyword.operator.logical.heliumrapid",
 					"match": "&&|\\|\\||!"
 				},
 				{
-					"name": "keyword.operator.bitwise.rapid.helium",
+					"name": "keyword.operator.bitwise.heliumrapid",
 					"match": "&|\\||\\^|~|<<|>>|>>>"
 				},
 				{
-					"name": "keyword.operator.increment.rapid.helium",
+					"name": "keyword.operator.increment.heliumrapid",
 					"match": "\\+\\+|--"
 				},
 				{
-					"name": "keyword.operator.member.rapid.helium",
+					"name": "keyword.operator.member.heliumrapid",
 					"match": "\\.|\\?\\."
 				},
 				{
-					"name": "keyword.operator.spread.rapid.helium",
+					"name": "keyword.operator.spread.heliumrapid",
 					"match": "\\.\\.\\."
 				},
 				{
-					"name": "keyword.operator.optional.rapid.helium",
+					"name": "keyword.operator.optional.heliumrapid",
 					"match": "\\?"
 				}
 			]
@@ -215,11 +218,11 @@
 		"functions": {
 			"patterns": [
 				{
-					"name": "entity.name.function.rapid.helium",
+					"name": "entity.name.function.heliumrapid",
 					"match": "\\b[a-zA-Z_$][a-zA-Z0-9_$]*\\s*\\("
 				},
 				{
-					"name": "keyword.other.function.rapid.helium",
+					"name": "keyword.other.function.heliumrapid",
 					"match": "\\b(function|=>)\\b"
 				}
 			]
@@ -227,15 +230,15 @@
 		"variables": {
 			"patterns": [
 				{
-					"name": "variable.other.readwrite.rapid.helium",
+					"name": "variable.other.readwrite.heliumrapid",
 					"match": "\\b[a-z_$][a-zA-Z0-9_$]*\\b"
 				},
 				{
-					"name": "variable.language.this.rapid.helium",
+					"name": "variable.language.this.heliumrapid",
 					"match": "\\bthis\\b"
 				},
 				{
-					"name": "variable.language.super.rapid.helium",
+					"name": "variable.language.super.heliumrapid",
 					"match": "\\bsuper\\b"
 				}
 			]
@@ -243,15 +246,15 @@
 		"constants": {
 			"patterns": [
 				{
-					"name": "constant.language.boolean.rapid.helium",
+					"name": "constant.language.boolean.heliumrapid",
 					"match": "\\b(true|false)\\b"
 				},
 				{
-					"name": "constant.language.null.rapid.helium",
+					"name": "constant.language.null.heliumrapid",
 					"match": "\\b(null|undefined)\\b"
 				},
 				{
-					"name": "constant.language.numeric.rapid.helium",
+					"name": "constant.language.numeric.heliumrapid",
 					"match": "\\b(NaN|Infinity)\\b"
 				}
 			]
@@ -259,27 +262,27 @@
 		"punctuation": {
 			"patterns": [
 				{
-					"name": "punctuation.terminator.statement.rapid.helium",
+					"name": "punctuation.terminator.statement.heliumrapid",
 					"match": ";"
 				},
 				{
-					"name": "punctuation.separator.comma.rapid.helium",
+					"name": "punctuation.separator.comma.heliumrapid",
 					"match": ","
 				},
 				{
-					"name": "punctuation.separator.colon.rapid.helium",
+					"name": "punctuation.separator.colon.heliumrapid",
 					"match": ":"
 				},
 				{
-					"name": "punctuation.definition.block.rapid.helium",
+					"name": "punctuation.definition.block.heliumrapid",
 					"match": "\\{|\\}"
 				},
 				{
-					"name": "punctuation.definition.array.rapid.helium",
+					"name": "punctuation.definition.array.heliumrapid",
 					"match": "\\[|\\]"
 				},
 				{
-					"name": "punctuation.definition.parameters.rapid.helium",
+					"name": "punctuation.definition.parameters.heliumrapid",
 					"match": "\\(|\\)"
 				}
 			]
@@ -287,11 +290,11 @@
 		"storage-types": {
 			"patterns": [
 				{
-					"name": "storage.type.primitive.rapid.helium",
+					"name": "storage.type.primitive.heliumrapid",
 					"match": "\\b(int|string|decimal|bool|date|datetime|uuid|void|blob)\\b"
 				},
 				{
-					"name": "storage.type.object.rapid.helium",
+					"name": "storage.type.object.heliumrapid",
 					"match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
 				}
 			]
@@ -299,20 +302,20 @@
 		"annotations": {
 			"patterns": [
 				{
-					"name": "meta.declaration.annotation.rapid.helium",
+					"name": "meta.declaration.annotation.heliumrapid",
 					"begin": "(@)([a-zA-Z][a-zA-Z0-9_]*)",
 					"end": "(?=\\s|$)",
 					"captures": {
 						"1": {
-							"name": "punctuation.definition.annotation.rapid.helium"
+							"name": "punctuation.definition.annotation.heliumrapid"
 						},
 						"2": {
-							"name": "storage.type.annotation.rapid.helium"
+							"name": "storage.type.annotation.heliumrapid"
 						}
 					},
 					"patterns": [
 						{
-							"name": "meta.declaration.annotation.arguments.rapid.helium",
+							"name": "meta.declaration.annotation.arguments.heliumrapid",
 							"begin": "\\(",
 							"end": "\\)",
 							"patterns": [
@@ -329,7 +332,7 @@
 									"include": "#functions"
 								},
 								{
-									"name": "punctuation.separator.comma.rapid.helium",
+									"name": "punctuation.separator.comma.heliumrapid",
 									"match": ","
 								}
 							]
