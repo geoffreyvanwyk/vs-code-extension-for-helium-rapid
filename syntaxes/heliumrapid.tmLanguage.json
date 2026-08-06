@@ -197,15 +197,7 @@
 			"patterns": [
 				{
 					"name": "variable.other.readwrite.heliumrapid",
-					"match": "\\b[a-z_$][a-zA-Z0-9_$]*\\b"
-				},
-				{
-					"name": "variable.language.this.heliumrapid",
-					"match": "\\bthis\\b"
-				},
-				{
-					"name": "variable.language.super.heliumrapid",
-					"match": "\\bsuper\\b"
+					"match": "\\b[a-z_][a-zA-Z0-9_]*\\b"
 				}
 			]
 		},
