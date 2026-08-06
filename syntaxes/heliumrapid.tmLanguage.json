@@ -209,11 +209,7 @@
 				},
 				{
 					"name": "constant.language.null.heliumrapid",
-					"match": "\\b(null|undefined)\\b"
-				},
-				{
-					"name": "constant.language.numeric.heliumrapid",
-					"match": "\\b(NaN|Infinity)\\b"
+					"match": "\\b(null)\\b"
 				}
 			]
 		},
