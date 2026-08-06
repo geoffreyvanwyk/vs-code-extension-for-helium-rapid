@@ -231,7 +231,7 @@
 			"patterns": [
 				{
 					"name": "storage.type.primitive.heliumrapid",
-					"match": "\\b(int|string|decimal|bool|date|datetime|uuid|void|blob)\\b"
+					"match": "\\b(int|string|decimal|bigint|bool|date|datetime|uuid|void|blob|json|jsonarray)\\b"
 				},
 				{
 					"name": "storage.type.object.heliumrapid",
