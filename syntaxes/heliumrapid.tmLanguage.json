@@ -4,7 +4,9 @@
 	"scopeName": "source.heliumrapid",
 	"displayName": "Helium Rapid",
 	"description": "Textmate grammar for domain-specific language of the Helium Rapid application platform-as-a-service",
-	"fileTypes": ["mez"],
+	"fileTypes": [
+		"mez"
+	],
 	"patterns": [
 		{
 			"include": "#comments"
@@ -106,20 +108,12 @@
 		"numbers": {
 			"patterns": [
 				{
-					"name": "constant.numeric.integer.hexadecimal.heliumrapid",
-					"match": "\\b0[xX][0-9a-fA-F]+\\b"
+					"name": "constant.numeric.decimal.heliumrapid",
+					"match": "\\b\\d+\\.\\d+\\b"
 				},
 				{
-					"name": "constant.numeric.integer.binary.heliumrapid",
-					"match": "\\b0[bB][01]+\\b"
-				},
-				{
-					"name": "constant.numeric.integer.octal.heliumrapid",
-					"match": "\\b0[oO]?[0-7]+\\b"
-				},
-				{
-					"name": "constant.numeric.float.heliumrapid",
-					"match": "\\b\\d+\\.\\d+([eE][+-]?\\d+)?\\b"
+					"name": "constant.numeric.integer.bigint.heliumrapid",
+					"match": "\\b\\d+l\\b"
 				},
 				{
 					"name": "constant.numeric.integer.decimal.heliumrapid",
