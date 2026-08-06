@@ -11,20 +11,33 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "heliumrapid",
-      "aliases": ["Helium Rapid", "Helium DSL", "Helium"],
-      "extensions": [".mez"],
-      "configuration": "./language-configuration.json",
-      "icon": {
-        "light": "images/helium-rapid-light.png",
-        "dark": "images/helium-rapid-dark.png"
+    "languages": [
+      {
+        "id": "heliumrapid",
+        "aliases": [
+          "Helium Rapid",
+          "Helium DSL",
+          "Helium"
+        ],
+        "extensions": [
+          ".mez"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "images/helium-rapid-light.png",
+          "dark": "images/helium-rapid-dark.png"
+        }
       }
-    }],
-    "grammars": [{
-      "language": "heliumrapid",
-      "scopeName": "source.heliumrapid",
-      "path": "./syntaxes/heliumrapid.tmLanguage.json"
-    }]
+    ],
+    "grammars": [
+      {
+        "language": "heliumrapid",
+        "scopeName": "source.heliumrapid",
+        "path": "./syntaxes/heliumrapid.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.json": "json"
+        }
+      }
+    ]
   }
 }

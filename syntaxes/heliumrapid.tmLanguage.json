@@ -104,6 +104,27 @@
 					]
 				},
 				{
+					"name": "string.quoted.other.multiline.json.heliumrapid",
+					"begin": "/%(?=\\s*[\\{\\[])",
+					"end": "%/",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.heliumrapid"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.heliumrapid"
+						}
+					},
+					"contentName": "meta.embedded.block.json",
+					"patterns": [
+						{
+							"include": "source.json"
+						}
+					]
+				},
+				{
 					"name": "string.quoted.other.multiline.heliumrapid",
 					"begin": "/%",
 					"end": "%/",
