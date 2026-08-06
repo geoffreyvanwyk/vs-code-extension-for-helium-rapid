@@ -102,6 +102,21 @@
 							"match": "\\\\x[0-9a-fA-F]{2}"
 						}
 					]
+				},
+				{
+					"name": "string.quoted.other.multiline.heliumrapid",
+					"begin": "/%",
+					"end": "%/",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.heliumrapid"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.heliumrapid"
+						}
+					}
 				}
 			]
 		},
