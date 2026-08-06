@@ -26,10 +26,10 @@ extension.
 
 Copyright © 2026 Geoffrey Bernardo van Wyk https://geoffreyvanwyk.dev
 
-This file is part of Ansible role geoffreyvanwyk.moodle.
+This file is part of vs-code-extension-for-helium-rapid.
 
-Ansible role geoffreyvanwyk.moodle is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+vs-code-extension-for-helium-rapid is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-Ansible role geoffreyvanwyk.moodle is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+vs-code-extension-for-helium-rapid is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with Ansible role geoffreyvanwyk.moodle. If not, see https://www.gnu.org/licenses/.
+You should have received a copy of the GNU General Public License along with vs-code-extension-for-helium-rapid. If not, see https://www.gnu.org/licenses/.
