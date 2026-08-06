@@ -161,10 +161,6 @@
 				{
 					"name": "keyword.operator.member.heliumrapid",
 					"match": "\\.|\\?\\."
-				},
-				{
-					"name": "keyword.operator.optional.heliumrapid",
-					"match": "\\?"
 				}
 			]
 		},
