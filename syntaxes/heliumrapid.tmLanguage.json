@@ -105,30 +105,6 @@
 							"match": "\\\\x[0-9a-fA-F]{2}"
 						}
 					]
-				},
-				{
-					"name": "string.quoted.template.heliumrapid",
-					"begin": "`",
-					"end": "`",
-					"patterns": [
-						{
-							"name": "constant.character.escape.heliumrapid",
-							"match": "\\\\."
-						},
-						{
-							"name": "variable.other.template.heliumrapid",
-							"begin": "\\$\\{",
-							"end": "\\}",
-							"patterns": [
-								{
-									"include": "#variables"
-								},
-								{
-									"include": "#operators"
-								}
-							]
-						}
-					]
 				}
 			]
 		},
