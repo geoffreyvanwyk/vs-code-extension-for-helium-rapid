@@ -140,15 +140,15 @@
 				},
 				{
 					"name": "keyword.operator.assignment.heliumrapid",
-					"match": "=|\\+=|-=|\\*=|/=|%=|\\*\\*=|<<=|>>=|&=|\\|=|\\^="
+					"match": "="
 				},
 				{
 					"name": "keyword.operator.comparison.heliumrapid",
-					"match": "==|!=|===|!==|<|>|<=|>="
+					"match": "==|!=|<|>|<=|>="
 				},
 				{
 					"name": "keyword.operator.logical.heliumrapid",
-					"match": "&&|\\|\\||!"
+					"match": "&&|\\|\\|"
 				},
 				{
 					"name": "keyword.operator.increment.heliumrapid",
