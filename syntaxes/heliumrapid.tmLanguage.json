@@ -151,10 +151,6 @@
 					"match": "&&|\\|\\||!"
 				},
 				{
-					"name": "keyword.operator.bitwise.heliumrapid",
-					"match": "&|\\||\\^|~|<<|>>|>>>"
-				},
-				{
 					"name": "keyword.operator.increment.heliumrapid",
 					"match": "\\+\\+|--"
 				},
