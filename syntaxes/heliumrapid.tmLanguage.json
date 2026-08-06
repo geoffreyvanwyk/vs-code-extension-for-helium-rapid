@@ -74,14 +74,9 @@
 					"name": "keyword.modifier.heliumrapid",
 					"match": "\\b(persistent)\\b"
 				},
-
-				{
-					"name": "keyword.operator.assignment.heliumrapid",
-					"match": "\\b(via)\\b"
-				},
 				{
 					"name": "keyword.other.heliumrapid",
-					"match": "\\b(true|false|null)\\b"
+					"match": "\\b(via)\\b"
 				}
 			]
 		},
