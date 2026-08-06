@@ -107,25 +107,6 @@
 					]
 				},
 				{
-					"name": "string.quoted.single.heliumrapid",
-					"begin": "'",
-					"end": "'",
-					"patterns": [
-						{
-							"name": "constant.character.escape.heliumrapid",
-							"match": "\\\\."
-						},
-						{
-							"name": "constant.character.escape.unicode.heliumrapid",
-							"match": "\\\\u[0-9a-fA-F]{4}"
-						},
-						{
-							"name": "constant.character.escape.unicode.heliumrapid",
-							"match": "\\\\x[0-9a-fA-F]{2}"
-						}
-					]
-				},
-				{
 					"name": "string.quoted.template.heliumrapid",
 					"begin": "`",
 					"end": "`",
