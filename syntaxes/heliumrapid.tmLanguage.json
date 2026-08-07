@@ -142,6 +142,9 @@
 							"include": "#annotations"
 						},
 						{
+							"include": "#object-attributes"
+						},
+						{
 							"include": "#keywords"
 						},
 						{
@@ -172,6 +175,29 @@
 							"include": "#punctuation"
 						}
 					]
+				}
+			]
+		},
+		"object-attributes": {
+			"patterns": [
+				{
+					"comment": "Attribute declaration: string name; STATES state; ShopOwner[] owners;",
+					"name": "meta.object.attribute.heliumrapid",
+					"match": "\\b(?:(int|string|decimal|bigint|bool|date|datetime|uuid|blob|json|jsonarray)|([A-Z][A-Z0-9_]*)|([A-Z][a-zA-Z0-9]*[a-z][a-zA-Z0-9]*(?:\\[\\])?))\\s+([a-z_][a-zA-Z0-9_]*)\\b",
+					"captures": {
+						"1": {
+							"name": "storage.type.primitive.heliumrapid"
+						},
+						"2": {
+							"name": "storage.type.enum.heliumrapid"
+						},
+						"3": {
+							"name": "storage.type.object.heliumrapid"
+						},
+						"4": {
+							"name": "variable.other.property.heliumrapid"
+						}
+					}
 				}
 			]
 		},
