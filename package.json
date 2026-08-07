@@ -3,7 +3,8 @@
   "displayName": "Language support for Helium Rapid",
   "description": "Provides language support for the domain-specific language of the Helium Rapid application platform.",
   "icon": "images/language-support-for-helium-rapid-icon.png",
-  "version": "1.10.0",
+  "version": "2.0.0",
+  "preview": true,
   "engines": {
     "vscode": "^1.99.0"
   },
