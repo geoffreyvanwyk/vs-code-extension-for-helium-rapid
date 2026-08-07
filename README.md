@@ -8,6 +8,10 @@ application platform.
 This extension provides the following: 
 
 * Syntax Highlighting
+* Go to Definition across workspace `.mez` files for:
+    - Objects, enums, validators, and units
+    - Functions and enum members
+    - Object attributes when the receiver type is known (e.g. `shop.shopCode`)
 * Language Support for:
     - Toggling in-line and block comments.
     - Autoclosing pairs: parentheses, braces, brackets, double quotes.

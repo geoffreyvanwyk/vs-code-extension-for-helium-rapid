@@ -25,6 +25,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 * Removed single quotes from grammar. One-line strings only use double-quoutes,
   not single quotes.
 
+## [1.5.0]
+
+### Added
+
+* Go to Definition (`vscode.DefinitionProvider`) for Helium Rapid `.mez` files:
+    * Workspace-wide navigation to objects, enums, validators, units, functions, and enum members
+    * Object attribute navigation when the receiver type can be inferred from a variable binding or `before`/`after` trigger context
+
 ## [1.4.0]
 
 - Syntax Highlighting
