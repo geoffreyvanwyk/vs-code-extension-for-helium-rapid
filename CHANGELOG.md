@@ -25,6 +25,15 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 * Removed single quotes from grammar. One-line strings only use double-quoutes,
   not single quotes.
 
+## [1.6.0]
+
+### Added
+
+* Find All References (`vscode.ReferenceProvider`) for Helium Rapid `.mez` files:
+    * Workspace-wide references for objects, enums, validators, units, functions, enum members, and attributes
+    * File-local references for variables
+    * Skips matches inside comments and string literals
+
 ## [1.5.0]
 
 ### Added

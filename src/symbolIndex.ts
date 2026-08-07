@@ -3,6 +3,7 @@ import { extractSymbols, ExtractResult } from "./symbolExtractor";
 import { IndexedSymbol, MezSymbol, SymbolKind } from "./types";
 
 interface FileEntry {
+  text: string;
   symbols: MezSymbol[];
   enclosingObjectAt: (offset: number) => string | undefined;
 }
@@ -132,6 +133,19 @@ export class MezSymbolIndex implements vscode.Disposable {
     return this.byUri.get(uri.toString())?.enclosingObjectAt(offset);
   }
 
+  getFileText(uri: vscode.Uri): string | undefined {
+    return this.byUri.get(uri.toString())?.text;
+  }
+
+  /** All indexed `.mez` file texts as `[uriString, text]` pairs. */
+  getAllFileTexts(): ReadonlyArray<readonly [string, string]> {
+    const result: Array<readonly [string, string]> = [];
+    for (const [uri, entry] of this.byUri) {
+      result.push([uri, entry.text]);
+    }
+    return result;
+  }
+
   private scheduleReindex(document: vscode.TextDocument): void {
     const key = document.uri.toString();
     const existing = this.debounceTimers.get(key);
@@ -162,6 +176,7 @@ export class MezSymbolIndex implements vscode.Disposable {
   private setFile(uri: vscode.Uri, text: string): void {
     const extracted: ExtractResult = extractSymbols(text);
     this.byUri.set(uri.toString(), {
+      text,
       symbols: extracted.symbols,
       enclosingObjectAt: extracted.enclosingObjectAt,
     });
