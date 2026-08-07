@@ -25,6 +25,16 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 * Removed single quotes from grammar. One-line strings only use double-quoutes,
   not single quotes.
 
+## [1.9.0]
+
+### Added
+
+* Code completion (`vscode.CompletionItemProvider`) for Helium Rapid `.mez` files:
+    * General: objects, enums, units, validators, file functions, in-scope variables, primitives, platform types, keywords
+    * Member access after `.` (object attributes / enum members)
+    * Unit-scoped functions after `Unit:`
+    * Validators after `@`
+
 ## [1.8.0]
 
 ### Added

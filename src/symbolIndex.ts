@@ -121,6 +121,59 @@ export class MezSymbolIndex implements vscode.Disposable {
       .map((s) => ({ ...s, uri: uri.toString() }));
   }
 
+  listByKinds(kinds: SymbolKind[]): IndexedSymbol[] {
+    const results: IndexedSymbol[] = [];
+    const seen = new Set<string>();
+    for (const [uri, entry] of this.byUri) {
+      for (const symbol of entry.symbols) {
+        if (!kinds.includes(symbol.kind)) {
+          continue;
+        }
+        const key = `${symbol.kind}:${symbol.containerName ?? ""}:${symbol.name}`;
+        if (seen.has(key)) {
+          continue;
+        }
+        seen.add(key);
+        results.push({ ...symbol, uri });
+      }
+    }
+    return results;
+  }
+
+  listAttributes(objectName: string): IndexedSymbol[] {
+    const results: IndexedSymbol[] = [];
+    for (const [uri, entry] of this.byUri) {
+      for (const symbol of entry.symbols) {
+        if (symbol.kind === "attribute" && symbol.containerName === objectName) {
+          results.push({ ...symbol, uri });
+        }
+      }
+    }
+    return results;
+  }
+
+  listEnumMembers(enumName: string): IndexedSymbol[] {
+    const results: IndexedSymbol[] = [];
+    for (const [uri, entry] of this.byUri) {
+      for (const symbol of entry.symbols) {
+        if (symbol.kind === "enumMember" && symbol.containerName === enumName) {
+          results.push({ ...symbol, uri });
+        }
+      }
+    }
+    return results;
+  }
+
+  listFunctionsInFile(uri: vscode.Uri): IndexedSymbol[] {
+    const entry = this.byUri.get(uri.toString());
+    if (!entry) {
+      return [];
+    }
+    return entry.symbols
+      .filter((s) => s.kind === "function")
+      .map((s) => ({ ...s, uri: uri.toString() }));
+  }
+
   getAttributeType(objectName: string, attrName: string): { typeName: string; isArray?: boolean } | undefined {
     const attrs = this.findAttribute(objectName, attrName);
     if (attrs.length === 0 || !attrs[0].typeName) {

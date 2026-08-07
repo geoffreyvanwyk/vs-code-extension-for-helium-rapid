@@ -230,7 +230,46 @@ function resolveReceiverType(
   return findVariableBinding(index, document, offset, receiver)?.typeName;
 }
 
-function findVariableBinding(
+/**
+ * Resolve the type at the end of a member chain (`shop`, `shop.owners`, `STATES`).
+ * Returns the type name and whether it is an enum.
+ */
+export function resolveTypeOfChain(
+  index: MezSymbolIndex,
+  document: vscode.TextDocument,
+  offset: number,
+  chain: string[]
+): { typeName: string; isEnum: boolean } | undefined {
+  if (chain.length === 0) {
+    return undefined;
+  }
+
+  const head = chain[0];
+  if (chain.length === 1 && /^[A-Z]/.test(head)) {
+    const enums = index.findByName(head, ["enum"]);
+    if (enums.length > 0) {
+      return { typeName: head, isEnum: true };
+    }
+  }
+
+  let typeName = resolveReceiverType(index, document, offset, head);
+  if (!typeName) {
+    return undefined;
+  }
+
+  for (let i = 1; i < chain.length; i++) {
+    const attrType = index.getAttributeType(typeName, chain[i]);
+    if (!attrType) {
+      return undefined;
+    }
+    typeName = attrType.typeName;
+  }
+
+  const isEnum = index.findByName(typeName, ["enum"]).length > 0;
+  return { typeName, isEnum };
+}
+
+export function findVariableBinding(
   index: MezSymbolIndex,
   document: vscode.TextDocument,
   offset: number,

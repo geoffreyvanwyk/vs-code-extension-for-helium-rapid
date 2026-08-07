@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { MezCompletionItemProvider } from "./completionProvider";
 import { MezDefinitionProvider } from "./definitionProvider";
 import { MezDocumentSymbolProvider } from "./documentSymbolProvider";
 import { MezReferenceProvider } from "./referenceProvider";
@@ -20,7 +21,14 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
       selector,
       new MezDocumentSymbolProvider(index)
     ),
-    vscode.languages.registerRenameProvider(selector, new MezRenameProvider(index))
+    vscode.languages.registerRenameProvider(selector, new MezRenameProvider(index)),
+    vscode.languages.registerCompletionItemProvider(
+      selector,
+      new MezCompletionItemProvider(index),
+      ".",
+      ":",
+      "@"
+    )
   );
 }
 
