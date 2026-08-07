@@ -3,7 +3,7 @@
   "displayName": "Language support for Helium Rapid",
   "description": "Provides language support for the domain-specific language of the Helium Rapid application platform.",
   "icon": "images/language-support-for-helium-rapid-icon.png",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "preview": true,
   "engines": {
     "vscode": "^1.99.0"
@@ -11,7 +11,8 @@
   "categories": [
     "Programming Languages"
   ],
-  "repository": "github:geoffreyvanwyk:vs-code-extension-for-helium-rapid",
+  "publisher": "GeoffreyBernardoVanWyk",
+  "repository": "github:geoffreyvanwyk/vs-code-extension-for-helium-rapid",
   "main": "./out/extension.js",
   "scripts": {
     "compile": "tsc -p ./",
