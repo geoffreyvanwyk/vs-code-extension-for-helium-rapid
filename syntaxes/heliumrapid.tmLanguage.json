@@ -358,8 +358,12 @@
 					"match": "\\b(int|string|decimal|bigint|bool|date|datetime|uuid|void|blob|json|jsonarray)\\b"
 				},
 				{
+					"name": "storage.type.enum.heliumrapid",
+					"match": "\\b[A-Z][A-Z0-9_]*\\b(?![.:])"
+				},
+				{
 					"name": "storage.type.object.heliumrapid",
-					"match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
+					"match": "\\b[A-Z][a-zA-Z0-9]*[a-z][a-zA-Z0-9]*(?:\\[\\])?\\b(?![.:])"
 				}
 			]
 		},
