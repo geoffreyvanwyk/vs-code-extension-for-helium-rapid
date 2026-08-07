@@ -11,7 +11,7 @@ export class MezSymbolIndex implements vscode.Disposable {
   private readonly byUri = new Map<string, FileEntry>();
   private readonly watcher: vscode.FileSystemWatcher;
   private readonly disposables: vscode.Disposable[] = [];
-  private debounceTimers = new Map<string, NodeJS.Timeout>();
+  private debounceTimers = new Map<string, ReturnType<typeof setTimeout>>();
 
   constructor() {
     this.watcher = vscode.workspace.createFileSystemWatcher("**/*.mez");
@@ -150,7 +150,9 @@ export class MezSymbolIndex implements vscode.Disposable {
       const open = vscode.workspace.textDocuments.find(
         (d) => d.uri.toString() === uri.toString()
       );
-      const text = open ? open.getText() : Buffer.from(await vscode.workspace.fs.readFile(uri)).toString("utf8");
+      const text = open
+        ? open.getText()
+        : new TextDecoder("utf-8").decode(await vscode.workspace.fs.readFile(uri));
       this.setFile(uri, text);
     } catch {
       // File may have been deleted between events.
