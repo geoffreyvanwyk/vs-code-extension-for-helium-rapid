@@ -72,6 +72,10 @@
 					"match": "\\b(if|else|for|foreach|throw|try|catch|finally|return)\\b"
 				},
 				{
+					"name": "keyword.control.trigger.heliumrapid",
+					"match": "\\b(beforeCreate|afterCreate|beforeUpdate|afterUpdate|beforeDelete|afterDelete)\\b"
+				},
+				{
 					"name": "keyword.type.heliumrapid",
 					"match": "\\b(object|enum|validator|unit)\\b"
 				},
@@ -258,6 +262,30 @@
 		"member-expressions": {
 			"patterns": [
 				{
+					"comment": "Trigger context: before.field, after.field",
+					"name": "meta.member-expression.trigger.heliumrapid",
+					"begin": "\\b(before|after)(?=\\s*\\.[a-zA-Z_])",
+					"beginCaptures": {
+						"1": {
+							"name": "variable.language.trigger.heliumrapid"
+						}
+					},
+					"end": "(?!\\s*\\.[a-zA-Z_])",
+					"patterns": [
+						{
+							"match": "(\\.)\\s*([a-zA-Z_][a-zA-Z0-9_]*)",
+							"captures": {
+								"1": {
+									"name": "punctuation.accessor.heliumrapid"
+								},
+								"2": {
+									"name": "variable.other.property.heliumrapid"
+								}
+							}
+						}
+					]
+				},
+				{
 					"comment": "a.b, a.b.c(), request.headers.jsonPut(",
 					"name": "meta.member-expression.heliumrapid",
 					"begin": "\\b([a-z_][a-zA-Z0-9_]*)(?=\\s*\\.[a-zA-Z_])",
@@ -314,6 +342,11 @@
 							"name": "variable.other.property.heliumrapid"
 						}
 					}
+				},
+				{
+					"comment": "Trigger context objects when not followed by member access",
+					"name": "variable.language.trigger.heliumrapid",
+					"match": "\\b(before|after)\\b"
 				},
 				{
 					"name": "variable.other.readwrite.heliumrapid",
