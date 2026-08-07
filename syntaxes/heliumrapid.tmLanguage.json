@@ -30,6 +30,9 @@
 			"include": "#operators"
 		},
 		{
+			"include": "#member-expressions"
+		},
+		{
 			"include": "#functions"
 		},
 		{
@@ -238,25 +241,6 @@
 					]
 				},
 				{
-					"comment": "Instance call: shop.save(, stock.length(, body.jsonPut(",
-					"name": "meta.function-call.instance.heliumrapid",
-					"match": "\\b([a-z_][a-zA-Z0-9_]*)(\\.)([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\()",
-					"captures": {
-						"1": {
-							"name": "variable.other.object.heliumrapid"
-						},
-						"2": {
-							"name": "punctuation.accessor.heliumrapid"
-						},
-						"3": {
-							"name": "entity.name.function.heliumrapid"
-						},
-						"4": {
-							"name": "punctuation.definition.parameters.begin.heliumrapid"
-						}
-					}
-				},
-				{
 					"comment": "Ordinary call: init(, notnull(, save(",
 					"name": "meta.function-call.heliumrapid",
 					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\()",
@@ -271,24 +255,50 @@
 				}
 			]
 		},
-		"variables": {
+		"member-expressions": {
 			"patterns": [
 				{
-					"comment": "Field access: shop.name, response.code, obj._id",
-					"name": "meta.property.access.heliumrapid",
-					"match": "\\b([a-z_][a-zA-Z0-9_]*)(\\.)([a-zA-Z_][a-zA-Z0-9_]*)\\b(?!\\s*\\()",
-					"captures": {
+					"comment": "a.b, a.b.c(), request.headers.jsonPut(",
+					"name": "meta.member-expression.heliumrapid",
+					"begin": "\\b([a-z_][a-zA-Z0-9_]*)(?=\\s*\\.[a-zA-Z_])",
+					"beginCaptures": {
 						"1": {
 							"name": "variable.other.object.heliumrapid"
-						},
-						"2": {
-							"name": "punctuation.accessor.heliumrapid"
-						},
-						"3": {
-							"name": "variable.other.property.heliumrapid"
 						}
-					}
-				},
+					},
+					"end": "(?!\\s*\\.[a-zA-Z_])",
+					"patterns": [
+						{
+							"comment": "Method segment: .jsonPut(",
+							"name": "meta.function-call.instance.heliumrapid",
+							"match": "(\\.)\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
+							"captures": {
+								"1": {
+									"name": "punctuation.accessor.heliumrapid"
+								},
+								"2": {
+									"name": "entity.name.function.heliumrapid"
+								}
+							}
+						},
+						{
+							"comment": "Property segment: .headers",
+							"match": "(\\.)\\s*([a-zA-Z_][a-zA-Z0-9_]*)",
+							"captures": {
+								"1": {
+									"name": "punctuation.accessor.heliumrapid"
+								},
+								"2": {
+									"name": "variable.other.property.heliumrapid"
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
 				{
 					"comment": "Enum/type member: DSL_VIEWS.ShopMgmt, GENDER.Male",
 					"name": "meta.property.access.enum.heliumrapid",
