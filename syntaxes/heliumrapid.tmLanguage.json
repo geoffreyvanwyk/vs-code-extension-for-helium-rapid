@@ -297,6 +297,22 @@
 				}
 			]
 		},
+		"string-escapes": {
+			"patterns": [
+				{
+					"name": "constant.character.escape.unicode.heliumrapid",
+					"match": "\\\\u[0-9a-fA-F]{4}"
+				},
+				{
+					"name": "constant.character.escape.unicode.heliumrapid",
+					"match": "\\\\x[0-9a-fA-F]{2}"
+				},
+				{
+					"name": "constant.character.escape.heliumrapid",
+					"match": "\\\\."
+				}
+			]
+		},
 		"strings": {
 			"patterns": [
 				{
@@ -305,16 +321,7 @@
 					"end": "\"",
 					"patterns": [
 						{
-							"name": "constant.character.escape.heliumrapid",
-							"match": "\\\\."
-						},
-						{
-							"name": "constant.character.escape.unicode.heliumrapid",
-							"match": "\\\\u[0-9a-fA-F]{4}"
-						},
-						{
-							"name": "constant.character.escape.unicode.heliumrapid",
-							"match": "\\\\x[0-9a-fA-F]{2}"
+							"include": "#string-escapes"
 						}
 					]
 				},
@@ -402,6 +409,145 @@
 		},
 		"functions": {
 			"patterns": [
+				{
+					"comment": "Inline SQL (same line): sql:query|execute(/% SELECT ... %/, ...)",
+					"name": "meta.function-call.sql.heliumrapid",
+					"begin": "\\b(sql)(:)(query|execute)\\s*(\\()\\s*(/%)",
+					"beginCaptures": {
+						"1": {
+							"name": "entity.name.type.heliumrapid"
+						},
+						"2": {
+							"name": "punctuation.separator.scope.heliumrapid"
+						},
+						"3": {
+							"name": "entity.name.function.heliumrapid"
+						},
+						"4": {
+							"name": "punctuation.definition.parameters.begin.heliumrapid"
+						},
+						"5": {
+							"name": "punctuation.definition.string.begin.heliumrapid"
+						}
+					},
+					"end": "%/",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.heliumrapid"
+						}
+					},
+					"contentName": "meta.embedded.block.sql",
+					"patterns": [
+						{
+							"include": "source.sql"
+						}
+					]
+				},
+				{
+					"comment": "Inline SQL (same line): sql:query|execute(\"SELECT ...\", ...)",
+					"name": "meta.function-call.sql.heliumrapid",
+					"begin": "\\b(sql)(:)(query|execute)\\s*(\\()\\s*(\")",
+					"beginCaptures": {
+						"1": {
+							"name": "entity.name.type.heliumrapid"
+						},
+						"2": {
+							"name": "punctuation.separator.scope.heliumrapid"
+						},
+						"3": {
+							"name": "entity.name.function.heliumrapid"
+						},
+						"4": {
+							"name": "punctuation.definition.parameters.begin.heliumrapid"
+						},
+						"5": {
+							"name": "punctuation.definition.string.begin.heliumrapid"
+						}
+					},
+					"end": "\"",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.heliumrapid"
+						}
+					},
+					"contentName": "meta.embedded.block.sql",
+					"patterns": [
+						{
+							"include": "#string-escapes"
+						},
+						{
+							"include": "source.sql"
+						}
+					]
+				},
+				{
+					"comment": "Inline SQL (string after newline): sql:query|execute(\\n/% ... %/|\"...\"). Begin cannot span lines. Abort if the first arg is not a string.",
+					"name": "meta.function-call.sql.heliumrapid",
+					"begin": "\\b(sql)(:)(query|execute)\\s*(\\()[ \\t]*$",
+					"beginCaptures": {
+						"1": {
+							"name": "entity.name.type.heliumrapid"
+						},
+						"2": {
+							"name": "punctuation.separator.scope.heliumrapid"
+						},
+						"3": {
+							"name": "entity.name.function.heliumrapid"
+						},
+						"4": {
+							"name": "punctuation.definition.parameters.begin.heliumrapid"
+						}
+					},
+					"end": "(?<=%/)|(?<=\")|(?=\\s*[a-zA-Z_\\)])",
+					"patterns": [
+						{
+							"include": "#comments"
+						},
+						{
+							"begin": "/%",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.string.begin.heliumrapid"
+								}
+							},
+							"end": "%/",
+							"endCaptures": {
+								"0": {
+									"name": "punctuation.definition.string.end.heliumrapid"
+								}
+							},
+							"contentName": "meta.embedded.block.sql",
+							"patterns": [
+								{
+									"include": "source.sql"
+								}
+							]
+						},
+						{
+							"begin": "\"",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.string.begin.heliumrapid"
+								}
+							},
+							"end": "\"",
+							"endCaptures": {
+								"0": {
+									"name": "punctuation.definition.string.end.heliumrapid"
+								}
+							},
+							"contentName": "meta.embedded.block.sql",
+							"patterns": [
+								{
+									"include": "#string-escapes"
+								},
+								{
+									"include": "source.sql"
+								}
+							]
+						}
+					]
+				},
 				{
 					"comment": "Scoped call / BIF: String:concat(, Shop:new(, Mez:log(",
 					"name": "meta.function-call.scoped.heliumrapid",

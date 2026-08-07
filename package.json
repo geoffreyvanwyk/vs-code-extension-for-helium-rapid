@@ -35,7 +35,8 @@
         "scopeName": "source.heliumrapid",
         "path": "./syntaxes/heliumrapid.tmLanguage.json",
         "embeddedLanguages": {
-          "meta.embedded.block.json": "json"
+          "meta.embedded.block.json": "json",
+          "meta.embedded.block.sql": "sql"
         }
       }
     ]
