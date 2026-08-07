@@ -250,9 +250,9 @@
 		"object-attributes": {
 			"patterns": [
 				{
-					"comment": "Attribute declaration: string name; STATES state; ShopOwner[] owners;",
+					"comment": "Attribute declaration: string name; STATES state; ShopOwner[] owners; __sms_result__ result;",
 					"name": "meta.object.attribute.heliumrapid",
-					"match": "\\b(?:(int|string|decimal|bigint|bool|date|datetime|uuid|blob|json|jsonarray)|([A-Z][A-Z0-9_]*)|([A-Z][a-zA-Z0-9]*[a-z][a-zA-Z0-9]*(?:\\[\\])?))\\s+([a-z_][a-zA-Z0-9_]*)\\b",
+					"match": "\\b(?:(int|string|decimal|bigint|bool|date|datetime|uuid|blob|json|jsonarray)|([A-Z][A-Z0-9_]*)|([A-Z][a-zA-Z0-9]*[a-z][a-zA-Z0-9]*(?:\\[\\])?)|(__[a-z][a-z0-9_]*__(?:\\[\\])?))\\s+([a-z_][a-zA-Z0-9_]*)\\b",
 					"captures": {
 						"1": {
 							"name": "storage.type.primitive.heliumrapid"
@@ -264,6 +264,9 @@
 							"name": "storage.type.object.heliumrapid"
 						},
 						"4": {
+							"name": "storage.type.builtin.heliumrapid"
+						},
+						"5": {
 							"name": "variable.other.property.heliumrapid"
 						}
 					}
@@ -419,9 +422,9 @@
 					}
 				},
 				{
-					"comment": "Declaration: void init(, string getName(, Shop[] getShops(, DSL_VIEWS back(",
+					"comment": "Declaration: void init(, string getName(, Shop[] getShops(, __sms_result__[] getSmsResults(",
 					"name": "meta.function.definition.heliumrapid",
-					"begin": "\\b(?:(void|int|string|decimal|bigint|bool|date|datetime|uuid|blob|json|jsonarray)|([A-Z][A-Z0-9_]*)|([A-Z][a-zA-Z0-9]*[a-z][a-zA-Z0-9]*(?:\\[\\])?))\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\()",
+					"begin": "\\b(?:(void|int|string|decimal|bigint|bool|date|datetime|uuid|blob|json|jsonarray)|([A-Z][A-Z0-9_]*)|([A-Z][a-zA-Z0-9]*[a-z][a-zA-Z0-9]*(?:\\[\\])?)|(__[a-z][a-z0-9_]*__(?:\\[\\])?))\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\()",
 					"beginCaptures": {
 						"1": {
 							"name": "storage.type.primitive.heliumrapid"
@@ -433,9 +436,12 @@
 							"name": "storage.type.object.heliumrapid"
 						},
 						"4": {
-							"name": "entity.name.function.heliumrapid"
+							"name": "storage.type.builtin.heliumrapid"
 						},
 						"5": {
+							"name": "entity.name.function.heliumrapid"
+						},
+						"6": {
 							"name": "punctuation.definition.parameters.begin.heliumrapid"
 						}
 					},
@@ -613,6 +619,11 @@
 				{
 					"name": "storage.type.primitive.heliumrapid",
 					"match": "\\b(int|string|decimal|bigint|bool|date|datetime|uuid|void|blob|json|jsonarray)\\b"
+				},
+				{
+					"comment": "Platform built-ins: __sms_result__, __scheduled_function_result__[]",
+					"name": "storage.type.builtin.heliumrapid",
+					"match": "\\b__[a-z][a-z0-9_]*__(?:\\[\\])?\\b(?![.:])"
 				},
 				{
 					"name": "storage.type.enum.heliumrapid",
