@@ -15,6 +15,12 @@
 			"include": "#annotations"
 		},
 		{
+			"include": "#units"
+		},
+		{
+			"include": "#validators"
+		},
+		{
 			"include": "#enums"
 		},
 		{
@@ -66,6 +72,69 @@
 						{
 							"name": "comment.block.heliumrapid",
 							"match": "\\*/"
+						}
+					]
+				}
+			]
+		},
+		"units": {
+			"patterns": [
+				{
+					"comment": "unit ShopMgmt;",
+					"name": "meta.unit.heliumrapid",
+					"match": "\\b(unit)\\s+([A-Z][A-Za-z0-9_]*)\\s*(;)",
+					"captures": {
+						"1": {
+							"name": "keyword.declaration.unit.heliumrapid"
+						},
+						"2": {
+							"name": "entity.name.namespace.heliumrapid"
+						},
+						"3": {
+							"name": "punctuation.terminator.statement.heliumrapid"
+						}
+					}
+				}
+			]
+		},
+		"validators": {
+			"patterns": [
+				{
+					"comment": "validator requiredFieldValidator { notnull(); }",
+					"name": "meta.validator.heliumrapid",
+					"begin": "\\b(validator)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\{)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.declaration.validator.heliumrapid"
+						},
+						"2": {
+							"name": "entity.name.type.validator.heliumrapid"
+						},
+						"3": {
+							"name": "punctuation.definition.block.begin.heliumrapid"
+						}
+					},
+					"end": "\\}",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.block.end.heliumrapid"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#comments"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#functions"
+						},
+						{
+							"include": "#punctuation"
 						}
 					]
 				}
