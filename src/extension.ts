@@ -2,6 +2,7 @@ import * as vscode from "vscode";
 import { MezDefinitionProvider } from "./definitionProvider";
 import { MezDocumentSymbolProvider } from "./documentSymbolProvider";
 import { MezReferenceProvider } from "./referenceProvider";
+import { MezRenameProvider } from "./renameProvider";
 import { MezSymbolIndex } from "./symbolIndex";
 
 let index: MezSymbolIndex | undefined;
@@ -18,7 +19,8 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     vscode.languages.registerDocumentSymbolProvider(
       selector,
       new MezDocumentSymbolProvider(index)
-    )
+    ),
+    vscode.languages.registerRenameProvider(selector, new MezRenameProvider(index))
   );
 }
 

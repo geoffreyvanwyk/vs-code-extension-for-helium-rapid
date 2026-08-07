@@ -14,6 +14,7 @@ This extension provides the following:
     - Object attributes when the receiver type is known (e.g. `shop.shopCode`)
 * Find All References across workspace `.mez` files for the same symbol kinds
 * Document symbols (Outline / Go to Symbol in Editor) for units, objects, enums, validators, functions, and unit-level variables
+* Rename Symbol across the same reference set (F2)
 * Language Support for:
     - Toggling in-line and block comments.
     - Autoclosing pairs: parentheses, braces, brackets, double quotes.

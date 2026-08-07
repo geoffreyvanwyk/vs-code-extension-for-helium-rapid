@@ -3,7 +3,7 @@
   "displayName": "Language support for Helium Rapid",
   "description": "Provides language support for the domain-specific language of the Helium Rapid application platform.",
   "icon": "images/language-support-for-helium-rapid-icon.png",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "engines": {
     "vscode": "^1.99.0"
   },
@@ -14,7 +14,7 @@
   "scripts": {
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "test": "tsc -p ./tsconfig.test.json && node out-test/symbolExtractor.test.js && node out-test/referenceFinder.test.js && node out-test/documentSymbols.test.js",
+    "test": "tsc -p ./tsconfig.test.json && node out-test/symbolExtractor.test.js && node out-test/referenceFinder.test.js && node out-test/documentSymbols.test.js && node out-test/renameValidation.test.js",
     "vscode:prepublish": "npm run compile"
   },
   "contributes": {

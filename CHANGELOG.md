@@ -25,6 +25,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 * Removed single quotes from grammar. One-line strings only use double-quoutes,
   not single quotes.
 
+## [1.8.0]
+
+### Added
+
+* Rename Symbol (`vscode.RenameProvider`) for Helium Rapid `.mez` files:
+    * Renames declarations and references found by the reference provider
+    * Validates identifier syntax and reserved words
+
 ## [1.7.0]
 
 ### Added
