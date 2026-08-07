@@ -137,6 +137,10 @@ export class MezSymbolIndex implements vscode.Disposable {
     return this.byUri.get(uri.toString())?.text;
   }
 
+  getSymbolsForDocument(uri: vscode.Uri): readonly MezSymbol[] {
+    return this.byUri.get(uri.toString())?.symbols ?? [];
+  }
+
   /** All indexed `.mez` file texts as `[uriString, text]` pairs. */
   getAllFileTexts(): ReadonlyArray<readonly [string, string]> {
     const result: Array<readonly [string, string]> = [];

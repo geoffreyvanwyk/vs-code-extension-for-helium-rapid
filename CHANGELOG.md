@@ -25,6 +25,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 * Removed single quotes from grammar. One-line strings only use double-quoutes,
   not single quotes.
 
+## [1.7.0]
+
+### Added
+
+* Document symbols (`vscode.DocumentSymbolProvider`) for Helium Rapid `.mez` files:
+    * Outline / Go to Symbol in Editor for units, objects, enums, validators, functions, and unit-level variables
+    * Nested attributes under objects and enum members under enums
+
 ## [1.6.0]
 
 ### Added
