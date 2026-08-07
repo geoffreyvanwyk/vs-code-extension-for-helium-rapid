@@ -18,6 +18,9 @@
 			"include": "#enums"
 		},
 		{
+			"include": "#objects"
+		},
+		{
 			"include": "#storage-types"
 		},
 		{
@@ -101,6 +104,72 @@
 						{
 							"match": ",",
 							"name": "punctuation.separator.comma.heliumrapid"
+						}
+					]
+				}
+			]
+		},
+		"objects": {
+			"patterns": [
+				{
+					"name": "meta.object.heliumrapid",
+					"begin": "\\b(?:(persistent)\\s+)?(object)\\s+([A-Z][A-Za-z0-9_]*)\\s*(\\{)",
+					"beginCaptures": {
+						"1": {
+							"name": "storage.modifier.heliumrapid"
+						},
+						"2": {
+							"name": "keyword.declaration.object.heliumrapid"
+						},
+						"3": {
+							"name": "entity.name.type.object.heliumrapid"
+						},
+						"4": {
+							"name": "punctuation.definition.block.begin.heliumrapid"
+						}
+					},
+					"end": "\\}",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.block.end.heliumrapid"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#comments"
+						},
+						{
+							"include": "#annotations"
+						},
+						{
+							"include": "#keywords"
+						},
+						{
+							"include": "#storage-types"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#operators"
+						},
+						{
+							"include": "#member-expressions"
+						},
+						{
+							"include": "#functions"
+						},
+						{
+							"include": "#constants"
+						},
+						{
+							"include": "#variables"
+						},
+						{
+							"include": "#punctuation"
 						}
 					]
 				}
