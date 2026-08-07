@@ -25,6 +25,15 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 * Removed single quotes from grammar. One-line strings only use double-quoutes,
   not single quotes.
 
+## [1.10.0]
+
+### Added
+
+* Signature help (`vscode.SignatureHelpProvider`) for Helium Rapid `.mez` files:
+    * Shows return type and parameter list for user-defined functions while typing calls
+    * Tracks the active argument after `(` and `,`
+    * Prefers the current file / matching unit for overload selection
+
 ## [1.9.0]
 
 ### Added

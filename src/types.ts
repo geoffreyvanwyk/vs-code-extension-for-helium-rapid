@@ -18,6 +18,12 @@ export interface TextRange {
   end: TextPosition;
 }
 
+export interface ParameterInfo {
+  name: string;
+  typeName: string;
+  isArray?: boolean;
+}
+
 /** Declaration extracted from a .mez file (URI filled in by the index). */
 export interface MezSymbol {
   name: string;
@@ -31,6 +37,11 @@ export interface MezSymbol {
   /** Offset range where a variable binding is visible. */
   scopeStart?: number;
   scopeEnd?: number;
+  /** Function return type (without []). */
+  returnType?: string;
+  returnIsArray?: boolean;
+  /** Function parameters in declaration order. */
+  parameters?: ParameterInfo[];
 }
 
 export interface IndexedSymbol extends MezSymbol {

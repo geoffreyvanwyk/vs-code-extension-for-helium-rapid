@@ -108,6 +108,10 @@ test("extracts unit, variables, and functions", () => {
 
   const fns = symbols.filter(byKind("function")).map((f) => f.name).sort();
   assert.deepStrictEqual(fns, ["generateShopCode", "getShops", "init"]);
+
+  const init = symbols.find((s) => s.kind === "function" && s.name === "init");
+  assert.strictEqual(init?.returnType, "void");
+  assert.deepStrictEqual(init?.parameters, []);
 });
 
 test("extracts validator", () => {

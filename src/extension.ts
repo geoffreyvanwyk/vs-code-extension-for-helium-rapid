@@ -4,6 +4,7 @@ import { MezDefinitionProvider } from "./definitionProvider";
 import { MezDocumentSymbolProvider } from "./documentSymbolProvider";
 import { MezReferenceProvider } from "./referenceProvider";
 import { MezRenameProvider } from "./renameProvider";
+import { MezSignatureHelpProvider } from "./signatureHelpProvider";
 import { MezSymbolIndex } from "./symbolIndex";
 
 let index: MezSymbolIndex | undefined;
@@ -28,6 +29,14 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
       ".",
       ":",
       "@"
+    ),
+    vscode.languages.registerSignatureHelpProvider(
+      selector,
+      new MezSignatureHelpProvider(index),
+      {
+        triggerCharacters: ["(", ","],
+        retriggerCharacters: [","],
+      }
     )
   );
 }

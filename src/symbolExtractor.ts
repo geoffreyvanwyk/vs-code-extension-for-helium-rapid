@@ -1,5 +1,6 @@
 import {
   MezSymbol,
+  ParameterInfo,
   PRIMITIVES,
   TextPosition,
   TextRange,
@@ -224,6 +225,8 @@ function collectFunctionsAndVariables(
       continue;
     }
 
+    const returnTypeRaw = match[1];
+    const returnIsArray = Boolean(match[2]);
     const funcName = match[3];
     const nameStart = absIndex + match[0].lastIndexOf(funcName);
     const paramOpen = absIndex + match[0].length - 1;
@@ -244,16 +247,21 @@ function collectFunctionsAndVariables(
       continue;
     }
 
+    // Parameter bindings: visible in function body
+    const params = masked.slice(paramOpen + 1, paramClose);
+    const parameters = parseParameters(params);
+
     symbols.push({
       name: funcName,
       kind: "function",
       range: rangeFromOffsets(lineStarts, nameStart, nameStart + funcName.length),
+      returnType: stripArray(returnTypeRaw),
+      returnIsArray,
+      parameters,
     });
 
     functionScopes.push({ start: paramOpen, end: bodyClose });
 
-    // Parameter bindings: visible in function body
-    const params = masked.slice(paramOpen + 1, paramClose);
     collectTypedBindings(
       params,
       paramOpen + 1,
@@ -322,6 +330,24 @@ function collectFunctionsAndVariables(
       scopeEnd: masked.length,
     });
   }
+}
+
+/** Parse `Type name, Type[] other` parameter lists into structured info. */
+export function parseParameters(paramsFragment: string): ParameterInfo[] {
+  const parameters: ParameterInfo[] = [];
+  ATTR_OR_VAR.lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = ATTR_OR_VAR.exec(paramsFragment)) !== null) {
+    if (isFunctionCallSite(paramsFragment, match.index + match[0].length)) {
+      continue;
+    }
+    parameters.push({
+      name: match[3],
+      typeName: stripArray(match[1]),
+      isArray: Boolean(match[2]),
+    });
+  }
+  return parameters;
 }
 
 function collectTypedBindings(
